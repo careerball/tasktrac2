@@ -23,6 +23,7 @@
         
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <script src="js/vendor/angular.min.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
@@ -105,10 +106,11 @@
             </div>
         </div>
             <!--<h1>My Division</h1>
+
     <div class="title-container">
         <h1 class="page-title">My tasks</h1>
     </div>-->
-    <div class="main-container container-fluid">
+    <div class="main-container container-fluid" id="app1" ng-app="appOne" ng-controller="AppOneController">
         <div class="well clearfix actions">
             <div class="pull-left">
                 <div class="btn-group btngr2" data-toggle="buttons-radio">
@@ -128,7 +130,8 @@
                 </div>
             </div>
         </div>
-    <div class="tasks-list">
+
+    <div class="tasks-list" id="app2" ng-app="appTwo" ng-controller="AppTwoController">
         <div class="clearfix task-item">
             <div class="inner-box">
                 <div class="task-content">
@@ -542,6 +545,7 @@
     <!--- /remove status exemplification --->
     
            
+<div id= "app3" ng-app="appThree" ng-controller="AppThreeController">
 <div id="statusModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -571,6 +575,8 @@
         <button class="btn btn2" data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
 </div> <!--/modal-->
+</div> <!--/app3-->
+
         </div> <!-- /container -->
         <footer class="page-footer">
                 <p class="text-center">&copy; TaskTrac2 2014</p>
@@ -584,7 +590,32 @@
         <script src="js/vendor/bootstrap-editable.min.js"></script>
         <script src="js/vendor/select2.js"></script>
         <script src="js/vendor/address.js"></script>
-
         <script src="js/main.js"></script>
+	 <script>
+    var AppOne = angular.module("appOne", []);
+    AppOne.controller("AppOneController",
+            function($scope) {
+
+            }
+    );
+    var AppTwo = angular.module("appTwo", []);
+    AppTwo.controller("AppTwoController",
+            function($scope) {
+
+            }
+    );
+
+    var AppThree = angular.module("appThree", []);
+    AppThree.controller("AppThreeController",
+            function($scope) {
+
+            }
+    );
+    angular.bootstrap(document.getElementById("app1"),['appOne']);
+    angular.bootstrap(document.getElementById("app2"),['appTwo']);
+    angular.bootstrap(document.getElementById("app3"),['appThree']);
+
+</script>
+
     </body>
 </html>

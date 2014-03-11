@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+        <script src="js/vendor/angular.min.js"></script>
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -104,11 +105,11 @@
                 </div>
             </div>
         </div>
-        <div class="title-container">
+        <div class="title-container" id="app1" ng-app="appOne" ng-controller="AppOneController">
     <span class="status status-complete">Completed</span>
     <h1 class="page-title">#30 - T30 - Task no.30</h1>
 </div>
-<div class="main-container container-fluid page">
+<div class="main-container container-fluid page" id="app1" ng-app="appOne" ng-controller="AppOneController">
     <!--- EDIT BUTTONS --->
         <!--<div class="row-fluid">
             <div class="span12">
@@ -282,6 +283,7 @@
                 </div><!--/activity-->    
             </div>
         </div><!--/row-fluid-->
+
         <!--<hr/>-->
         <form class="form-horizontal view-mode task-form">
         <div class="clearfix">
@@ -544,5 +546,15 @@
         <script src="js/vendor/address.js"></script>
 
         <script src="js/main.js"></script>
+	 <script>
+    var AppOne = angular.module("appOne", []);
+    AppOne.controller("AppOneController",
+            function($scope) {
+
+            }
+    );
+    angular.bootstrap(document.getElementById("app1"),['appOne']);
+</script>
+
     </body>
 </html>

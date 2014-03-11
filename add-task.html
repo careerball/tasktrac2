@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+        <script src="js/vendor/angular.min.js"></script>
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -108,7 +109,7 @@
     <h1 class="page-title">Add New Task</h1>
     <a href="#" class="pull-right expand-hints" style="display:none"><small> Need help?</small></a>
 </div>
-<div class="main-container container-fluid page">
+<div class="main-container container-fluid page" id="app1" ng-app="appOne" ng-controller="AppOneController">
 <form class="form-horizontal">
 <div class="page-hints alert alert-info">
    <button type="button" class="close" data-dismiss="alert">&times; <small>Close</small></button>
@@ -353,5 +354,16 @@
         <script src="js/vendor/address.js"></script>
 
         <script src="js/main.js"></script>
+	 <script>
+    var AppOne = angular.module("appOne", []);
+    AppOne.controller("AppOneController",
+            function($scope) {
+
+            }
+    );
+    angular.bootstrap(document.getElementById("app1"),['appOne']);
+
+</script>
+
     </body>
 </html>
